@@ -7,9 +7,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=VA_user
-      - POSTGRES_PASSWORD=churpy#02
-      - POSTGRES_DB=VA_db
+      - POSTGRES_USER=harmannkibue
+      - POSTGRES_PASSWORD=Mqmlove#02
+      - POSTGRES_DB=BOOKSTEST_DB
     #   connecting to network called backend
     networks:
       - backend
