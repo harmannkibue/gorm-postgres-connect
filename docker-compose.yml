@@ -4,6 +4,8 @@ services:
     image: postgres:13.0-alpine
     container_name: virtual_accounts_db
     restart: always
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
@@ -22,7 +24,7 @@ services:
     container_name: virtual_account_api
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - "8080:8080"
     volumes:
       - ./:/app
     depends_on:
