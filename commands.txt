@@ -1,0 +1,3 @@
+# Instalations
+go get github.com/astaxie/beego/orm
+go get github.com/lib/pq
