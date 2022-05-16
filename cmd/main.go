@@ -4,6 +4,7 @@ import (
 	"example/postgres-connect/pkg/books"
 	"example/postgres-connect/pkg/common/config"
 	"example/postgres-connect/pkg/common/db"
+	"example/postgres-connect/pkg/common/utils"
 	"github.com/gin-gonic/gin"
 	"log"
 )
@@ -17,11 +18,10 @@ func main() {
 	}
 
 	port := configVariables.Port
-	var db_host, db_user, password, db_name, db_port, ssl_mode, timezone = configVariables.DbHost, configVariables.DbUser, configVariables.Password, configVariables.DbName, configVariables.DbPort, configVariables.SslMode, configVariables.TimeZone
 
-	db_init := db.Init("host=" + db_host + " user=" + db_user + " password=" + password + " dbname=" + db_name + " port=" + db_port + " sslmode=" + ssl_mode + " TimeZone=" + timezone)
+	dbInit := db.Init(utils.BuildPostgresParams())
 
-	books.RegisterRoutes(router, db_init)
+	books.RegisterRoutes(router, dbInit)
 
 	log.Fatal(router.Run(port))
 
